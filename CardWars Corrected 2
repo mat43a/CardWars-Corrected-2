@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+ 
+namespace CardWars
+{
+    class Program
+    {
+        static void Main()
+        {
+            int numberOfGames = int.Parse(Console.ReadLine());
+            int firstPlayerScore = 0;
+            int secondPlayerScore = 0;
+            short firstPlayerGamesWon = 0;
+            short secondPlayerGamesWon = 0;
+            BigInteger firstPlayerOverall = 0;
+            BigInteger secondPlayerOverall = 0;
+            List<string> firstPlayerCards = new List<string>();
+            List<string> secondPlayerCards = new List<string>();
+            int count = 0;
+            for (int i = 0; i < numberOfGames; i++)
+            {
+                firstPlayerCards.Add(Console.ReadLine());
+                firstPlayerCards.Add(Console.ReadLine());
+                firstPlayerCards.Add(Console.ReadLine());
+                secondPlayerCards.Add(Console.ReadLine());
+                secondPlayerCards.Add(Console.ReadLine());
+                secondPlayerCards.Add(Console.ReadLine());
+ 
+                bool firstContains;
+                bool secondContains;
+                string X = "X";
+                firstContains = firstPlayerCards.Contains(X);
+                secondContains = secondPlayerCards.Contains(X);
+ 
+                if (firstContains == true && secondContains == false)
+                {
+                    Console.WriteLine("X card drawn! Player one wins the match!");
+                    goto Finish;
+                }
+                else if (firstContains == false && secondContains == true)
+                {
+                    Console.WriteLine("X card drawn! Player two wins the match!");
+                    goto Finish;
+                }
