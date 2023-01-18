@@ -96,3 +96,47 @@ namespace CardWars
                         firstPlayerOverall += 50;
                         secondPlayerOverall += 50;
                     }
+                if (firstPlayerScore > secondPlayerScore)
+                {
+                    secondPlayerScore = 0;
+                    firstPlayerGamesWon++;
+                }
+                else if (firstPlayerScore < secondPlayerScore)
+                {
+                    firstPlayerScore = 0;
+                    secondPlayerGamesWon++;
+                }
+                else if (firstPlayerScore == secondPlayerScore)
+                {
+                    firstPlayerScore = 0;
+                    secondPlayerScore = 0;
+                }
+                }
+                firstPlayerOverall += firstPlayerScore;
+                secondPlayerOverall += secondPlayerScore;
+                firstPlayerScore = 0;
+                secondPlayerScore = 0;
+                count += 3;
+            }
+            if (firstPlayerOverall == secondPlayerOverall)
+            {
+                Console.WriteLine("It's a tie!");
+                Console.WriteLine("Score: " + (firstPlayerOverall + secondPlayerOverall) / 2);
+            }
+            else if (firstPlayerOverall > secondPlayerOverall)
+            {
+                Console.WriteLine("First player wins!");
+                Console.WriteLine("Score: " + firstPlayerOverall);
+                Console.WriteLine("Games won: " + firstPlayerGamesWon);
+            }
+            else
+            {
+                Console.WriteLine("Second player wins!");
+                Console.WriteLine("Score: " + secondPlayerOverall);
+                Console.WriteLine("Games won: " + secondPlayerGamesWon);
+            }
+        Finish:
+            ;
+        }
+    }
+}
